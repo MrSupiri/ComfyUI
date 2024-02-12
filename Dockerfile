@@ -16,4 +16,4 @@ COPY . /app
 EXPOSE 8188
 
 # Run app.py when the container launches
-CMD ["python", "main.py", "--listen", "0.0.0.0", "--port", "8188"]
+CMD ["python", "main.py", "--listen", "0.0.0.0", "--port", "8188", "--force-fp16"]
