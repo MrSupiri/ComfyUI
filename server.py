@@ -14,6 +14,7 @@ import struct
 from PIL import Image, ImageOps
 from PIL.PngImagePlugin import PngInfo
 from io import BytesIO
+import requests
 
 try:
     import aiohttp
@@ -79,6 +80,7 @@ class PromptServer():
         self.loop = loop
         self.messages = asyncio.Queue()
         self.number = 0
+        self.webhook_url = os.environ.get("WEBHOOK_URL", None)
 
         middlewares = [cache_control]
         if args.enable_cors_header:
@@ -606,6 +608,13 @@ class PromptServer():
 
     async def send_json(self, event, data, sid=None):
         message = {"type": event, "data": data}
+
+        if self.webhook_url is not None:
+            headers = {'Content-Type': 'application/json'}
+            try:
+                requests.post(self.webhook_url, headers=headers, json=message)
+            except requests.exceptions.RequestException as e:
+                print(f"Failed to send message to webhook: {e}")
 
         if sid is None:
             sockets = list(self.sockets.values())
