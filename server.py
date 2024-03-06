@@ -14,7 +14,6 @@ import struct
 from PIL import Image, ImageOps
 from PIL.PngImagePlugin import PngInfo
 from io import BytesIO
-import requests
 
 try:
     import aiohttp
@@ -612,8 +611,11 @@ class PromptServer():
         if self.webhook_url is not None:
             headers = {'Content-Type': 'application/json'}
             try:
-                requests.post(self.webhook_url, headers=headers, json=message)
-            except requests.exceptions.RequestException as e:
+                async with aiohttp.ClientSession() as session:
+                    async with session.post(self.webhook_url, headers=headers, json=message) as response:
+                        if response.status != 200:
+                            print(f"Failed to send message to webhook: {response.status}")
+            except Exception as e:
                 print(f"Failed to send message to webhook: {e}")
 
         if sid is None:
