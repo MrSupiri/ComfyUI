@@ -1,3 +1,6 @@
 [submodule "custom_nodes/ComfyUI-Custom-Scripts"]
 	path = custom_nodes/ComfyUI-Custom-Scripts
 	url = https://github.com/pythongosssss/ComfyUI-Custom-Scripts.git
+[submodule "custom_nodes/ComfyUI-Manager"]
+	path = custom_nodes/ComfyUI-Manager
+	url = https://github.com/ltdrdata/ComfyUI-Manager.git
