@@ -1,7 +1,7 @@
 FROM pytorch/pytorch:2.2.0-cuda12.1-cudnn8-runtime
 
 # Install git
-RUN apt-get update && apt-get install -y git
+RUN apt-get update && apt-get install ffmpeg libsm6 libxext6 git  -y
 
 # Set the working directory
 WORKDIR /app
