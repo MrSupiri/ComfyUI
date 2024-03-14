@@ -4,3 +4,18 @@
 [submodule "custom_nodes/ComfyUI-Manager"]
 	path = custom_nodes/ComfyUI-Manager
 	url = https://github.com/ltdrdata/ComfyUI-Manager.git
+[submodule "custom_nodes/comfyui-mixlab-nodes"]
+	path = custom_nodes/comfyui-mixlab-nodes
+	url = git@github.com:shadowcz007/comfyui-mixlab-nodes.git
+[submodule "custom_nodes/comfyui_controlnet_aux"]
+	path = custom_nodes/comfyui_controlnet_aux
+	url = git@github.com:Fannovel16/comfyui_controlnet_aux.git
+[submodule "custom_nodes/ComfyUI-sampler-lcm-alternative"]
+	path = custom_nodes/ComfyUI-sampler-lcm-alternative
+	url = git@github.com:jojkaart/ComfyUI-sampler-lcm-alternative.git
+[submodule "custom_nodes/ComfyUI_smZNodes"]
+	path = custom_nodes/ComfyUI_smZNodes
+	url = git@github.com:shiimizu/ComfyUI_smZNodes.git
+[submodule "custom_nodes/ComfyUI_Custom_Nodes_AlekPet"]
+	path = custom_nodes/ComfyUI_Custom_Nodes_AlekPet
+	url = git@github.com:AlekPet/ComfyUI_Custom_Nodes_AlekPet.git

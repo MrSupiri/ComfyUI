@@ -7,13 +7,10 @@ RUN apt-get update && apt-get install -y git
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-COPY requirements.txt /app
+COPY . /app
 
 # Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the current directory contents into the container at /app
-COPY . /app
+RUN find . -name requirements.txt -print0 | xargs -0 -n1 pip install --no-cache-dir -r
 
 # Make port 8188 available to the world outside this container
 EXPOSE 8188
